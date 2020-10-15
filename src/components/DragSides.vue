@@ -33,7 +33,7 @@
 import draggable from 'vuedraggable'
 import $ from 'jquery'
 import _ from 'lodash'
-import DragPanel from './dragPanel'
+import DragPanel from './DragPanel'
 import ComponentSide from './sider/componentSide'
 import ResourceSide from './sider/resourceSide'
 import { start } from '../js/createNodes'

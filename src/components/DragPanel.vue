@@ -13,7 +13,7 @@
 import $ from 'jquery'
 
 export default {
-  name: 'dragPanel',
+  name: 'DragPanel',
   components: {
   },
   props: {
