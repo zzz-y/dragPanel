@@ -296,7 +296,6 @@ function updateLayout () {
     .attr('position', 'absolute')
     .attr('data-data-type', d => d.type)
     .attr('data-data-name', d => d.name)
-    .attr('data-data-dataSourceType', d => d.datasource_type)
     .attr('x', d => d.fx - 14)
     .attr('y', d => d.fy - 14)
     .attr('fill', '#686ddf')

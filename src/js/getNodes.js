@@ -14,23 +14,18 @@ function getNodeData (data) {
   const nodeThis = {}
   if (data.datasourceId) { // 数据源
     nodeThis.icon = data.icon
-    nodeThis.name = data.datasourceName
-    nodeThis.table_name = data.datasourcePath
-    nodeThis.data_resourse_id = data.datasourceId
-    nodeThis.id = `cnode_${data.datasourceId}_${swgraph.i}`
+    nodeThis.name = data.name
+    nodeThis.id = `cnode_${data.id}_${swgraph.i}`
     nodeThis.type = '01'
-    nodeThis.datasource_type = data.datasourceType
-    nodeThis.latest_time = data.updateTime
     nodeThis.mouseX = offsetX
     nodeThis.mouseY = offsetY
     nodeThis.dataNum = data.datasourceNum
     nodeThis.isLoad = false
   } else {
-    nodeThis.icon = data.componentIcon
-    nodeThis.name = data.componentName
-    nodeThis.id = `ioper_${data.componentId}_${swgraph.i}`
-    nodeThis.type = data.componentId
-    nodeThis.datasource_type = '0'
+    nodeThis.icon = data.icon
+    nodeThis.name = data.name
+    nodeThis.id = `ioper_${data.id}_${swgraph.i}`
+    nodeThis.type = data.id
     nodeThis.mouseX = offsetX
     nodeThis.mouseY = offsetY
     nodeThis.isLoad = false

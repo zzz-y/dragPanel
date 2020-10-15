@@ -18,6 +18,7 @@ export default {
   },
   props: {
     showSide: Boolean,
+    position: String,
     id: [Number, String],
   },
   data () {
@@ -29,13 +30,27 @@ export default {
       $(`#${id}`).css('z-index', ++this.zIndex)
       const offsetX = evt.offsetX
       const drag = (evt) => {
-        const xScale = evt.x < (document.body.clientWidth - $('.aside').width() - 20) &&
-          evt.x > 50
-        const yScale = evt.y > 10 && evt.y < (document.body.clientHeight - 20)
-        if (xScale) {
-          const left = (evt.x - offsetX)
-          $(`#${id}`).css('left', left)
+        let xScale
+        if (this.position === 'right') {
+          xScale = evt.x < (document.body.clientWidth - $('.aside').width() - 10) &&
+            evt.x > 10
+        } else {
+          xScale = evt.x < (document.body.clientWidth - 50) &&
+            evt.x > $('.aside').width()
         }
+        if (xScale) {
+          if (this.position === 'right') {
+            const left = (evt.x - offsetX)
+            $(`#${id}`).css('left', left)
+          } else {
+            if ($('.aside').width() > 0) {
+              $(`#${id}`).css('left', evt.x - offsetX - 180)
+            } else {
+              $(`#${id}`).css('left', evt.x - 120)
+            }
+          }
+        }
+        const yScale = evt.y > 10 && evt.y < (document.body.clientHeight - 10)
         if (yScale) {
           $(`#${id}`).css('top', evt.y - 5)
         }
@@ -61,8 +76,15 @@ export default {
         if ($('.draggable-tab').children().length === 1) {
           const nodes = $('#svgContainer > .panel-item')
           nodes.each((i, d) => {
-            if (d.offsetLeft >= (x - 120)) {
-              $(`#${d.id}`).css('left', x - (document.body.clientWidth * 0.15))
+            if (this.position === 'right') {
+              if (d.offsetLeft >= (x - 120)) {
+                $(`#${d.id}`).css('left', x - (document.body.clientWidth * 0.15))
+              }
+            } else {
+              const nodeLeft = parseInt(d.style.left)
+              const width = document.body.clientWidth * 0.15 > 240 ? 240 : document.body.clientWidth * 0.15
+              const left = nodeLeft - width > (width / 2) ? nodeLeft - width : width / 2
+              $(`#${d.id}`).css('left', left)
             }
           })
         }

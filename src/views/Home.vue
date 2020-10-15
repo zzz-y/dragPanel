@@ -18,8 +18,8 @@
 <script>
 // @ is an alias to /src
 import DragSides from '@/components/DragSides.vue'
-import ComponentSide from '../components/sider/componentSide'
-import ResourceSide from '../components/sider/resourceSide'
+import ComponentSide from './sider/componentSide'
+import ResourceSide from './sider/resourceSide'
 import DragItem from '../components/DragItem'
 
 export default {
