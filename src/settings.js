@@ -1,6 +1,6 @@
 module.exports = {
 
-  title: '分析工具',
+  title: '',
 
   /**
    * @type {boolean} true | false

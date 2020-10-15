@@ -57,6 +57,9 @@ module.exports = {
       alias: {
         '@': resolve('src')
       }
+    },
+    output: {
+      libraryExport: 'default'
     }
   },
   chainWebpack (config) {
