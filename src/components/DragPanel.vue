@@ -19,7 +19,7 @@ export default {
   props: {
     showSide: Boolean,
     position: String,
-    id: [Number, String],
+    id: [Number, String]
   },
   data () {
     return {
@@ -89,7 +89,7 @@ export default {
           })
         }
       }
-    },
+    }
   }
 }
 </script>

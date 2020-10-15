@@ -1,6 +1,5 @@
 /* eslint-disable no-unreachable */
 import Vue from 'vue'
-import * as _ from 'lodash'
 import * as d3 from 'd3'
 import * as $ from 'jquery'
 import { drawStraight, translatePath } from './drawStraight'
@@ -15,7 +14,7 @@ let nodeParts // 节点的update和enter部分
 let linkParts // 连线的update和enter部分
 let width // svg宽度
 let height // svg高度
-const r = 24
+// const r = 24
 // const zoom = d3.zoom()
 const currentTransform = {
   data: {
@@ -677,10 +676,10 @@ function addLink () {
 
 function removeLink (removeId) {
   const tmpArray = swgraph.force.force('link').links().filter(e => e.id !== removeId)
-  const delLink = swgraph.force.force('link').links().filter(e => e.id === removeId)[0]
+  // const delLink = swgraph.force.force('link').links().filter(e => e.id === removeId)[0]
 
-  const tId = delLink.target.id
-  const sId = delLink.source.id
+  // const tId = delLink.target.id
+  // const sId = delLink.source.id
 
   swgraph.force.force('link').links().splice(0)
   tmpArray.forEach(e => swgraph.force.force('link').links().push(e))
@@ -699,5 +698,5 @@ export {
   zoomEnd,
   links,
   updateLayout,
-  createLayout,
+  createLayout
 }

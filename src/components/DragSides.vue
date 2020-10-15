@@ -35,8 +35,6 @@ import draggable from 'vuedraggable'
 import $ from 'jquery'
 import _ from 'lodash'
 import DragPanel from './DragPanel'
-import ComponentSide from '../views/sider/componentSide'
-import ResourceSide from '../views/sider/resourceSide'
 import { start } from '../js/createNodes'
 import { getNodeData, getOffset } from '../js/getNodes'
 
@@ -44,9 +42,7 @@ export default {
   name: 'DragSides',
   components: {
     DragPanel,
-    draggable,
-    ComponentSide,
-    ResourceSide,
+    draggable
   },
   props: {
     // panel是否可拖拽出来
@@ -56,11 +52,11 @@ export default {
     },
     panelData: {
       type: Array,
-      default: [
+      default: () => [
         {
           id: '1',
           name: 'defaultPanel'
-        },
+        }
       ]
     },
     width: {
@@ -68,11 +64,11 @@ export default {
       default: '15%'
     },
     props: {
-      default() {
+      default () {
         return {
           id: 'id',
-          name: 'name',
-        };
+          name: 'name'
+        }
       }
     },
     position: { // right left
@@ -84,7 +80,7 @@ export default {
     return {
       containerList: [],
       showSide: true,
-      zIndex: 2,
+      zIndex: 2
     }
   },
   methods: {
@@ -119,7 +115,7 @@ export default {
           }
         }
       }
-    },
+    }
   }
 }
 </script>

@@ -6,16 +6,10 @@
 </template>
 
 <script>
-import draggable from 'vuedraggable'
-
 export default {
   name: 'resourceSide',
-  components: {
-    draggable,
-  },
   data () {
     return {
-      activeName: 'first',
       sourceList: [
         {
           'id': 1318,

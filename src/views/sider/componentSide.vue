@@ -12,12 +12,10 @@
 </template>
 
 <script>
-import draggable from 'vuedraggable'
 
 export default {
   name: 'componentSide',
   components: {
-    draggable
   },
   data () {
     return {
