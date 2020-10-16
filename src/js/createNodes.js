@@ -274,7 +274,7 @@ function updateLayout () {
     .attr('cx', d => d.fx)
     .attr('cy', d => d.fy)
     .attr('fill', d => {
-      return d.type === '01' ? '#ffffff' : 'transparent'
+      return d.type === '01' ? '#333333' : 'transparent'
     })
     .attr('stroke-width', 2)
     .attr('stroke', d => {
@@ -343,7 +343,7 @@ function updateLayout () {
     .attr('y', d => d.fy + 48)
     .attr('pointer-events', 'none')
     .text(d => `${d.name}${d.id.match(/[0-9]\d*/g)[1]}`)
-    .style('fill', '#ffffff')
+    .style('fill', '#333333')
 
   updateNode
     .select('.nodeText')
@@ -354,7 +354,7 @@ function updateLayout () {
     .attr('y', d => d.fy + 48)
     .attr('pointer-events', 'none')
     .text(d => `${d.name}${d.id.match(/[0-9]\d*/g)[1]}`)
-    .style('fill', '#ffffff')
+    .style('fill', '#333333')
 
   /* eslint-disable no-confusing-arrow */
   nodeParts
@@ -367,7 +367,7 @@ function updateLayout () {
     .attr('y', d => d.fy + 38)
     .attr('pointer-events', 'none')
     .text(d => d.dataNum ? `${d.dataNum}` : '')
-    .style('fill', '#ffffff')
+    .style('fill', '#333333')
     .style('display', 'none')
 
   updateNode
@@ -378,7 +378,7 @@ function updateLayout () {
     .attr('y', d => d.fy + 48)
     .attr('pointer-events', 'none')
     .text(d => d.dataNum ? `${d.dataNum}` : '')
-    .style('fill', '#ffffff')
+    .style('fill', '#333333')
 
   updateNode.exit().remove()
 
@@ -394,7 +394,7 @@ function updateLayout () {
     .attr('position', 'absolute')
     .append('path')
     .attr('stroke-width', '1px')
-    .attr('stroke', '#ffffff')
+    .attr('stroke', '#333333')
     .attr('id', d => d.id)
     .attr('fill', '#cccccc')
     .attr('class', 'datalink')
@@ -481,7 +481,7 @@ function mouseoverElements () {
       }
     })
   d3.select(this).select('.calculateBg').attr('fill', '#686ddf')
-  d3.select(this).select('.calculateIcon').attr('fill', '#ffffff')
+  d3.select(this).select('.calculateIcon').attr('fill', '#333333')
 }
 
 /**
@@ -501,7 +501,7 @@ function mouseoutBackgroundCircle () {
 function mouseoutElements () {
   swgraph.attachCondition = false
   d3.select(this).select('.calculateBg').attr('fill', (d) => {
-    return d.type === '01' ? '#ffffff' : 'transparent'
+    return d.type === '01' ? '#333333' : 'transparent'
   })
   d3.select(this).select('.calculateIcon').attr('fill', '#686ddf')
 }

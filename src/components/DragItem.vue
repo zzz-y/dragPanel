@@ -4,22 +4,7 @@
     v-model="group"
     :sort="false"
     :group="{ name:'components', pull:'clone', put:false }">
-    <div :class="type==='inline'?'data-list-item':'list-group-item'"
-         v-for="x in group"
-         :key="x.id"
-         :title="x.description"
-         :id="`node_${x.id}`">
-      <template v-if="!type">
-        <div class="icon-wrapper">
-          <svg-icon :icon-class="x.icon"></svg-icon>
-        </div>
-        <div>{{x.name}}</div>
-      </template>
-      <template v-if="type==='inline'">
-        <svg-icon :icon-class="x.icon"></svg-icon>
-        <span>{{x.name}}</span>
-      </template>
-    </div>
+    <slot name="list" :list="group"></slot>
   </draggable>
 </template>
 
@@ -42,6 +27,5 @@ export default {
 }
 </script>
 
-<style scoped>
-
+<style>
 </style>

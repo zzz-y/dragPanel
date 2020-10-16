@@ -1,4 +1,4 @@
-@import "common";
+
 
 * {
   box-sizing: border-box;
@@ -24,52 +24,4 @@
       background: #686ddf;
     }
   }
-}
-
-ul,
-ol {
-  list-style: none;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-
-  &:hover {
-    border-bottom: 1px solid;
-    cursor: pointer;
-  }
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-weight: normal;
-}
-
-body {
-  font-size: 14px;
-  // 为什么这样写 font-family
-  // 答案见 https://github.com/zenozeng/fonts.css/
-  font-family: -apple-system, 'Noto Sans', 'Helvetica Neue', Helvetica,
-  'Nimbus Sans L', Arial, 'Liberation Sans', 'PingFang SC', 'Hiragino Sans GB',
-  'Noto Sans CJK SC', 'Source Han Sans SC', 'Source Han Sans CN',
-  'Microsoft YaHei', 'Wenquanyi Micro Hei', 'WenQuanYi Zen Hei', 'ST Heiti',
-  SimHei, 'WenQuanYi Zen Hei Sharp', sans-serif;
-  height: 100%;
-  color: #ffffff;
-}
-
-html, #app {
-  height: 100%;
-  box-sizing: border-box;
-}
-
-svg {user-select: none;width: 100%;height: 100%;}
-
-.svg-icon + span, span + .svg-icon {
-  margin-left: 0.5rem;
 }

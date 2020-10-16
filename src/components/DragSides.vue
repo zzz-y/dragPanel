@@ -22,7 +22,10 @@
           :position="position"
           @sideVisible="showSide = !showSide">
           <template v-slot:panel>
-            <slot name="component" :componentName="item[props.name]"></slot>
+            <slot name="component"
+                  :componentName="item[props.name]"
+                  :isInline="item[props.isInline]"
+                  :list="item[props.list]"></slot>
           </template>
         </drag-panel>
       </draggable>
@@ -67,7 +70,9 @@ export default {
       default () {
         return {
           id: 'id',
-          name: 'name'
+          name: 'name',
+          isInline: 'isInline',
+          list: 'list'
         }
       }
     },
@@ -120,3 +125,89 @@ export default {
 }
 </script>
 
+<style>
+  .container {
+    display: flex;
+    height: 100%;
+  }
+
+  .main {
+    background: #f6f5f9;
+    flex: 1;
+    overflow: hidden;
+  }
+
+  .aside {
+    width: 15%;
+    max-width: 15rem;
+    display: flex;
+    background-color: #f6f5f9;
+  }
+
+  svg {user-select: none;width: 100%;height: 100%;}
+
+  .draggable-tab {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    overflow: hidden;
+  }
+
+  .draggable-tab > .panel-item {
+    position: relative;
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+  }
+
+  .draggable-tab .del, .draggable-tab .move {
+    display: none;
+    position: absolute;
+  }
+
+  .draggable-tab .resource-tab {margin-bottom: 2px;}
+
+  .draggable-tab > .sortable-ghost {display: none}
+
+  .for-svg {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .for-svg > .panel-item {
+    width: 15rem;
+    display: flex;
+    flex: initial;
+    max-height: calc(50vh - 4rem);
+    border: 1px solid #97a4ba;
+    border-radius: 4px;
+    position: absolute;
+    user-select: none;
+  }
+
+  .for-svg > .panel-item > span {
+    display: initial;
+    position: absolute;
+    top: 0.25rem;
+  }
+
+  .for-svg > .panel-item .move {
+    position: absolute;
+    width: 100%;
+    height: 1.5rem;
+    cursor: move;
+  }
+
+  .for-svg > .panel-item .del {right: 0.5rem;cursor: pointer;}
+
+  .for-svg > .sortable-ghost {display: none;}
+
+  .hover-link {
+    transition: all 0.4s;
+    -webkit-transition: all 0.4s;
+  }
+
+  .hover-link:hover {opacity: 0.6;}
+</style>

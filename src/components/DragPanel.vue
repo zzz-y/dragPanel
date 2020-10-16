@@ -1,11 +1,12 @@
 <template>
   <div class="panel-item" :ref="id" :id="id">
-    <slot name="panel"></slot>
+    <div class="resource-tab">
+      <div class="title"></div>
+      <slot name="panel"></slot>
+    </div>
     <div class="move" @mousedown="(evt) => mousedown(evt, id)">
     </div>
-    <span class="del" @click="closeComponent(id)">
-      <svg-icon icon-class="18x"></svg-icon>
-    </span>
+    <span class="del" @click="closeComponent(id)">X</span>
   </div>
 </template>
 
@@ -95,5 +96,18 @@ export default {
 </script>
 
 <style scoped>
+  .resource-tab {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background-color: #b5bde0;
+  }
+
+  .resource-tab .title {
+    height: 1.5rem;
+    min-height: 1.5rem;
+    background: #9da6c9;
+  }
 
 </style>
